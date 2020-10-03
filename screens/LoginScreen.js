@@ -1,11 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
 import Constants from "expo-constants";
 import FaceBook from "../assets/facebook.png";
-import CustomTextInput from "./CustomTextInput";
-import CustomButton from "./CustomButton";
-import LinkButton from "./LinkButton";
-import CustomDivider from "./CustomDivider";
+import CustomTextInput from "../components/CustomTextInput";
+import CustomButton from "../components/CustomButton";
+import CustomDivider from "../components/CustomDivider";
 import { screenWidth } from "../utils/Constants";
 
 export default function LoginScreen() {
@@ -14,7 +13,7 @@ export default function LoginScreen() {
       <View style={{ alignItems: "center" }}>
         <Image style={{ width: screenWidth, height: 220 }} source={FaceBook} />
         <CustomTextInput
-          style={{ marginTop: 20, borderBottomWidth: 0 }}
+          style={{ marginTop: 20, borderBottomColor: "white" }}
           placeholder={"Phone number or Email"}
         />
         <CustomTextInput placeholder={"Password"} secureTextEntry={true} />
@@ -37,6 +36,22 @@ export default function LoginScreen() {
         </CustomButton>
       </View>
     </View>
+  );
+}
+
+function LinkButton(props) {
+  return (
+    <TouchableOpacity style={{ ...styles.button, ...props.style }}>
+      <Text
+        style={{
+          color: "#5669D0",
+          fontWeight: "500",
+          fontSize: 16,
+        }}
+      >
+        {props.children}
+      </Text>
+    </TouchableOpacity>
   );
 }
 

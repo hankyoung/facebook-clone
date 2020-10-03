@@ -1,22 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Constants from "expo-constants";
-import LoginScreen from "./components/LoginScreen";
+import LoginScreen from "./screens/LoginScreen";
+import Momo from "./screens/Momo";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.safeArea}>
       <StatusBar style="light" />
       <LoginScreen />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#003d87",
   },
 });
